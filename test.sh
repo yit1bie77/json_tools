@@ -4,8 +4,8 @@
 # This script demonstrates how to use the set_settings.py tool
 
 # Configuration - Update these paths as needed
-PRJ_Folder="/home/tie/workspace/AOS/issp_aos_dply_prj_ref_4_1_0"
-JSON_Tools_Folder="/home/tie/workspace/ISSP/Json_Tools"
+PRJ_Folder="/home/yit1bie/workspace/AOS/prj_4_1_0_json"
+JSON_Tools_Folder="/home/yit1bie/tools/Python/json_tools"
 
 # Control flag - set to false to skip settings modification
 if_setsettings=true
@@ -64,7 +64,7 @@ if [ "$if_setsettings" = true ]; then
     echo "Running: python set_settings.py \"$PRJ_Folder\" $@"
     echo "=================================================="
     
-    python set_settings.py "$PRJ_Folder" "$@"
+    python3 set_settings.py "$PRJ_Folder" "$@"
     exit_code=$?
     
     echo "=================================================="

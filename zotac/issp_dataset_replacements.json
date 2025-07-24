@@ -10,12 +10,12 @@
         {
             "description": "Enable CAN usage",
             "from": "\"use_can\": 0",
-            "to": "\"use_can\": 1"
+            "to": "\"use_can\": 0"
         },
         {
                     "description": "Change input source from file (0) to live source (2)",
                     "from": "\"input_source\": 0",
-                    "to": "\"input_source\": 0"
+                    "to": "\"input_source\": 2"
                 },
         {
             "description": "Update camera brightness setting from 60 or 18 to 20",
@@ -33,17 +33,17 @@
             {
                 "description": "Replace seatbelt_model.onnx with seatbelt_misuse_model.onnx (complete path change)",
                 "old_path": "/home/issp/workspace/issp_oms_models/seatbelt_model.onnx",
-                "new_path": "/home/issp/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+                "new_path": "/home/yit1bie/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
             },
             {
-                "description": "Replace old '/home/iss/' paths with new '/home/issp/workspace/' paths (old filename)",
+                "description": "Replace old '/home/iss/' paths with new '/home/yit1bie/workspace/' paths (old filename)",
                 "old_path": "/home/iss/issp_oms_models/seatbelt_model.onnx",
-                "new_path": "/home/issp/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+                "new_path": "/home/yit1bie/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
             },
             {
-                "description": "Replace old '/home/iss/' paths with new '/home/issp/workspace/' paths (correct filename)",
+                "description": "Replace old '/home/iss/' paths with new '/home/yit1bie/workspace/' paths (correct filename)",
                 "old_path": "/home/iss/issp_oms_models/seatbelt_misuse_model.onnx",
-                "new_path": "/home/issp/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+                "new_path": "/home/yit1bie/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
             }
         ]
     },

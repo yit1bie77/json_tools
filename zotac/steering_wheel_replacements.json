@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "description": "Steering wheel value replacements for specific camera configurations",
+  "replacements": [
+    {
+      "description": "Update steering wheel values for mirror camera default configuration",
+      "target_camera": "MIRRORSE_CHN1CAMDEFAULT",
+      "field_name": "steering_wheel",
+      "old_values": [
+        0.605078125,
+        0.5236895161,
+        0.392578125,
+        0.3860887097
+      ],
+      "new_values": [
+        0.6484375000,
+        0.5745967742,
+        0.3398437500,
+        0.2772177419
+      ]
+    }
+  ]
+}
+
+
+
