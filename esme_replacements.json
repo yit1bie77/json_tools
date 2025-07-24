@@ -1,0 +1,51 @@
+{
+    "version": "1.0",
+    "description": "ESME manifest parameter replacements for ISSP project configuration",
+    "replacements": [
+        {
+            "description": "Update gateway variant type from 14 to 9",
+            "from": "ISSP_AOS_PARAM_GW_VARIANT_TYPE=14",
+            "to": "ISSP_AOS_PARAM_GW_VARIANT_TYPE=9"
+        },
+        {
+            "description": "Gateway camera parameter (no change needed)",
+            "from": "ISSP_AOS_PARAM_GW_CAM=0",
+            "to": "ISSP_AOS_PARAM_GW_CAM=0"
+        },
+        {
+            "description": "Update bodypose2d model path and add environment variables",
+            "from": "\"MGC_BODYPOSE2D_MODEL_PATH=/home/iss/issp_oms_models/bodypose2d_model.onnx\"",
+            "to": "\"MGC_BODYPOSE2D_MODEL_PATH=/home/issp/workspace/issp_oms_models/bodypose2d_model.onnx\",\n                                    \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/issp/workspace/issp_oms_so\",\n                                    \"MGC_BODYPOSE2D_PEAKS_THRESHOLD=0.125\",\n                                    \"MGC_BODYPOSE2D_CONNECT_THRESHOLD=0.05\""
+        },
+        {
+            "description": "Update bodypose3d model path and add library path",
+            "from": "\"MGC_BODYPOSE3D_MODEL_PATH=/home/iss/issp_oms_models/bodypose3d_model.onnx\"",
+            "to": "\"MGC_BODYPOSE3D_MODEL_PATH=/home/issp/workspace/issp_oms_models/bodypose3d_model.onnx\",\n                                    \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/issp/workspace/issp_oms_so\""
+        },
+        {
+            "description": "Update seatbelt model path",
+            "from": "\"MGC_SEATBELT_MODEL_PATH=/home/iss/issp_oms_models/seatbelt_model.onnx\"",
+            "to": "\"MGC_SEATBELT_MODEL_PATH=/home/issp/workspace/issp_oms_models/seatbelt_model.onnx\""
+        },
+        {
+            "description": "Update seatbelt misuse model path and add library path",
+            "from": "\"MGC_SEATBELT_MISUSE_MODEL_PATH=/home/iss/issp_oms_models/seatbelt_misuse_model.onnx\"",
+            "to": "\"MGC_SEATBELT_MISUSE_MODEL_PATH=/home/issp/workspace/issp_oms_models/seatbelt_misuse_model.onnx\",\n                                   \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/issp/workspace/issp_oms_so\""
+        },
+        {
+            "description": "Update child seat detection 2D model path and add library path",
+            "from": "\"MGC_CHILDSEATDET2D_MODEL_PATH=/home/iss/issp_oms_models/crs2d_model.onnx\"",
+            "to": "\"MGC_CHILDSEATDET2D_MODEL_PATH=/home/issp/workspace/issp_oms_models/crs2d_model.onnx\",\n                                   \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/issp/workspace/issp_oms_so\""
+        },
+        {
+            "description": "Update occupancy model path and add library path",
+            "from": "\"MGC_OCCUPANT_CLASSIFICATION_MODEL_PATH=/home/iss/issp_oms_models/ocla_model.onnx\"",
+            "to": "\"MGC_OCCUPANT_CLASSIFICATION_MODEL_PATH=/home/issp/workspace/issp_oms_models/ocla_model.onnx\",\n                                    \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/issp/workspace/issp_oms_so\""
+        },
+        {
+            "description": "Add library path to activity instance configuration",
+            "from": "\"ACTIVITY_INSTANCE_NAME=issp_aos_act_bp2hp_instance\"",
+            "to": "\"ACTIVITY_INSTANCE_NAME=issp_aos_act_bp2hp_instance\",\n                                    \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/issp/workspace/issp_oms_so\""
+        }
+    ]
+}

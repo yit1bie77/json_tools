@@ -1,0 +1,72 @@
+{
+    "version": "2.0",
+    "description": "ISSP_dataset manifest parameter replacements for ISSP project configuration",
+    "path_mappings": {
+        "description": "Define path mappings for ASCII array replacements",
+        "old_base_path": "",
+        "new_base_path": ""
+    },
+    "replacements": [
+        {
+            "description": "Enable CAN usage",
+            "from": "\"use_can\": 0",
+            "to": "\"use_can\": 1"
+        },
+        {
+                    "description": "Change input source from file (0) to live source (2)",
+                    "from": "\"input_source\": 0",
+                    "to": "\"input_source\": 2"
+                },
+        {
+            "description": "Update camera brightness setting from 60 or 18 to 20",
+            "from": [
+                "\"fg_aec_tar_bright\": 60",
+                "\"fg_aec_tar_bright\": 18"
+            ],
+            "to": "\"fg_aec_tar_bright\": 20"
+        }
+    ],
+    "ascii_path_replacements": {
+        "description": "These paths will be automatically converted to ASCII arrays and replaced",
+        "note": "The script will find all '*_path' fields with ASCII arrays and replace the old paths with new ones",
+        "automatic_replacements": [
+            {
+                "description": "Replace seatbelt_model.onnx with seatbelt_misuse_model.onnx (complete path change)",
+                "old_path": "/home/issp/workspace/issp_oms_models/seatbelt_model.onnx",
+                "new_path": "/home/issp/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+            },
+            {
+                "description": "Replace old '/home/iss/' paths with new '/home/issp/workspace/' paths (old filename)",
+                "old_path": "/home/iss/issp_oms_models/seatbelt_model.onnx",
+                "new_path": "/home/issp/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+            },
+            {
+                "description": "Replace old '/home/iss/' paths with new '/home/issp/workspace/' paths (correct filename)",
+                "old_path": "/home/iss/issp_oms_models/seatbelt_misuse_model.onnx",
+                "new_path": "/home/issp/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+            }
+        ]
+    },
+    "steering_wheel_replacements": {
+        "description": "Steering wheel value replacements for specific camera configurations",
+        "replacements": [
+            {
+                "description": "Update steering wheel values for mirror camera default configuration",
+                "target_camera": "MIRRORSE_CHN1CAMDEFAULT",
+                "field_name": "steering_wheel",
+                "old_values": [
+                    0.605078125,
+                    0.5236895161,
+                    0.392578125,
+                    0.3860887097
+                ],
+                "new_values": [
+                    0.6484375000,
+                    0.5745967742,
+                    0.3398437500,
+                    0.2772177419
+                ]
+            }
+        ]
+    }
+}
