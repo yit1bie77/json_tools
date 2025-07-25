@@ -31,41 +31,14 @@
         "note": "The script will find all '*_path' fields with ASCII arrays and replace the old paths with new ones",
         "automatic_replacements": [
             {
-                "description": "Replace seatbelt_model.onnx with seatbelt_misuse_model.onnx (complete path change)",
-                "old_path": "/home/issp/workspace/issp_oms_models/seatbelt_model.onnx",
-                "new_path": "/home/yit1bie/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
-            },
-            {
-                "description": "Replace old '/home/iss/' paths with new '/home/yit1bie/workspace/' paths (old filename)",
+                "description": "Replace old '/home/iss/' paths with new '/home/yit1bie/workspace/' paths (seatbelt_model.onnx)",
                 "old_path": "/home/iss/issp_oms_models/seatbelt_model.onnx",
                 "new_path": "/home/yit1bie/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
             },
             {
-                "description": "Replace old '/home/iss/' paths with new '/home/yit1bie/workspace/' paths (correct filename)",
+                "description": "Replace old '/home/iss/' paths with new '/home/yit1bie/workspace/' paths (seatbelt_misuse_model.onnx)",
                 "old_path": "/home/iss/issp_oms_models/seatbelt_misuse_model.onnx",
                 "new_path": "/home/yit1bie/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
-            }
-        ]
-    },
-    "steering_wheel_replacements": {
-        "description": "Steering wheel value replacements for specific camera configurations",
-        "replacements": [
-            {
-                "description": "Update steering wheel values for mirror camera default configuration",
-                "target_camera": "MIRRORSE_CHN1CAMDEFAULT",
-                "field_name": "steering_wheel",
-                "old_values": [
-                    0.605078125,
-                    0.5236895161,
-                    0.392578125,
-                    0.3860887097
-                ],
-                "new_values": [
-                    0.6484375000,
-                    0.5745967742,
-                    0.3398437500,
-                    0.2772177419
-                ]
             }
         ]
     }
