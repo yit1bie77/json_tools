@@ -97,15 +97,17 @@ def apply_dataset_replacements(dataset_path, config_path=None):
                     continue
                 if isinstance(from_patterns, list):
                     for from_pattern in from_patterns:
-                        if from_pattern in dataset_content:
-                            dataset_content = dataset_content.replace(from_pattern, to_pattern)
+                        new_content, success = flexible_string_replace(dataset_content, from_pattern, to_pattern, description)
+                        if success:
+                            dataset_content = new_content
                             total_changes += 1
-                            print(f"✅ Applied: {description} (pattern: {from_pattern})")
+                            print(f"✅ Applied: {description} (pattern: {from_pattern[:50]}...)")
                         else:
-                            print(f"ℹ️  Not found: {description} (pattern: {from_pattern})")
+                            print(f"ℹ️  Not found: {description} (pattern: {from_pattern[:50]}...)")
                 else:
-                    if from_patterns in dataset_content:
-                        dataset_content = dataset_content.replace(from_patterns, to_pattern)
+                    new_content, success = flexible_string_replace(dataset_content, from_patterns, to_pattern, description)
+                    if success:
+                        dataset_content = new_content
                         total_changes += 1
                         print(f"✅ Applied: {description}")
                     else:
@@ -158,6 +160,47 @@ ISSP JSON Tools - Configuration Settings Manager
 import json
 import sys
 import os
+import re
+
+def flexible_string_replace(content, from_pattern, to_pattern, description=""):
+    """
+    Perform string replacement that ignores whitespace variations.
+    Handles both exact matches and flexible JSON array matching.
+    """
+    # First try exact match
+    if from_pattern in content:
+        return content.replace(from_pattern, to_pattern), True
+    
+    # For JSON arrays, try whitespace-flexible matching
+    if '"reference_table_model_logit_with_seatbelt_status"' in from_pattern:
+        # Create a pattern that matches the reference table with different array values
+        # Look specifically for the pattern [4,4,4,4,4,4,3,0,0,0,0,0] with flexible whitespace
+        pattern = r'"reference_table_model_logit_with_seatbelt_status"\s*:\s*\[\s*4\s*,\s*4\s*,\s*4\s*,\s*4\s*,\s*4\s*,\s*4\s*,\s*3\s*,\s*0\s*,\s*0\s*,\s*0\s*,\s*0\s*,\s*0\s*\]'
+        
+        matches = re.search(pattern, content, re.DOTALL)
+        if matches:
+            # Replace with the new values, preserving original formatting style
+            replacement_text = '"reference_table_model_logit_with_seatbelt_status": [\n                4,\n                4,\n                4,\n                4,\n                3,\n                1,\n                3,\n                0,\n                0,\n                0,\n                0,\n                0\n              ]'
+            new_content = re.sub(pattern, replacement_text, content, flags=re.DOTALL)
+            return new_content, True
+    
+    # Try general flexible whitespace matching for other patterns
+    if '[' in from_pattern and ']' in from_pattern:
+        # Escape special regex characters and make whitespace flexible
+        escaped_pattern = re.escape(from_pattern)
+        # Replace escaped whitespace with flexible whitespace patterns
+        flexible_pattern = escaped_pattern.replace(r'\ ', r'\s*').replace(r'\n', r'\s*').replace(r'\t', r'\s*')
+        
+        try:
+            matches = re.search(flexible_pattern, content, re.DOTALL)
+            if matches:
+                new_content = re.sub(flexible_pattern, to_pattern, content, flags=re.DOTALL)
+                return new_content, True
+        except re.error:
+            # If regex fails, fall back to exact match
+            pass
+    
+    return content, False
 
 def replace_steering_wheel_values(data, replacements):
     """

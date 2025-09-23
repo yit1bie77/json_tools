@@ -4,15 +4,15 @@
 # This script demonstrates how to use the set_settings.py tool
 
 # Configuration - Update these paths as needed
-PRJ_Folder="/home/yit1bie/workspace/AOS/prj_4_1_0_json"
-JSON_Tools_Folder="/home/yit1bie/tools/Python/json_tools"
+PRJ_Folder="/home/yit1bie/Documents/issp_dataset"
+JSON_Tools_Folder="/home/yit1bie/workspace/python/json_tools"
 
 # Configuration JSON files path - Set to specific subfolder or leave empty for default
 # Examples:
 #   CONFIG_Path=""           # Use default (JSON files in main folder)
 #   CONFIG_Path="./etron"    # Use files from etron subfolder
 #   CONFIG_Path="./zotac"    # Use files from zotac subfolder
-CONFIG_Path="./etron"  # Set to your desired configuration path
+CONFIG_Path="./zotac"  # Set to your desired configuration path
 
 # Control flag - set to false to skip settings modification
 if_setsettings=true
