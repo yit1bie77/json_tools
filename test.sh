@@ -12,7 +12,7 @@ JSON_Tools_Folder="/home/yit1bie/workspace/python/json_tools"
 #   CONFIG_Path=""           # Use default (JSON files in main folder)
 #   CONFIG_Path="./etron"    # Use files from etron subfolder
 #   CONFIG_Path="./zotac"    # Use files from zotac subfolder
-CONFIG_Path="./zotac"  # Set to your desired configuration path
+CONFIG_Path="./etron"  # Set to your desired configuration path
 
 # Control flag - set to false to skip settings modification
 if_setsettings=true

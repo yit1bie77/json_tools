@@ -46,6 +46,16 @@
             "description": "Add library path to activity instance configuration",
             "from": "\"ACTIVITY_INSTANCE_NAME=issp_aos_act_bp2hp_instance\"",
             "to": "\"ACTIVITY_INSTANCE_NAME=issp_aos_act_bp2hp_instance\",\n                                    \"LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/issp/workspace/issp_oms_so\""
+        },
+        {
+            "description": "Add library path to face_detection onnx",
+            "from": "\"FACEDETECTION_MODEL_PATH=/home/iss/issp_vitals_models/face_detection_yunet.onnx\"",
+            "to": "\"FACEDETECTION_MODEL_PATH=/home/issp/workspace/issp_vitals_models/face_detection_yunet.onnx\""
+        },
+        {
+            "description": "Add library path to efficientPhys onnx",
+            "from": "\"HEARTRATEDETECTION_MODEL_PATH=/home/iss/issp_vitals_models/EfficientPhys.onnx\"",
+            "to": "\"HEARTRATEDETECTION_MODEL_PATH=/home/issp/workspace/issp_vitals_models/EfficientPhys.onnx\""
         }
     ]
 }
