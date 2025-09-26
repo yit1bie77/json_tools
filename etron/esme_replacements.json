@@ -10,7 +10,7 @@
         {
             "description": "Gateway camera parameter (no change needed)",
             "from": "ISSP_AOS_PARAM_GW_CAM=0",
-            "to": "ISSP_AOS_PARAM_GW_CAM=0"
+            "to": "ISSP_AOS_PARAM_GW_CAM=1"
         },
         {
             "description": "Update bodypose2d model path and add environment variables",
