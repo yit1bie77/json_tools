@@ -1,0 +1,53 @@
+{
+    "version": "2.0",
+    "description": "ISSP_dataset manifest parameter replacements for ISSP project configuration",
+    "path_mappings": {
+        "description": "Define path mappings for ASCII array replacements",
+        "old_base_path": "",
+        "new_base_path": ""
+    },
+    "replacements": [
+        {
+            "description": "Enable CAN usage",
+            "from": "\"use_can\": 0",
+            "to": "\"use_can\": 1"
+        },
+        {
+                    "description": "Change input source from file (0) to live source (2)",
+                    "from": "\"input_source\": 0",
+                    "to": "\"input_source\": 0"
+                },
+        {
+            "description": "Update camera brightness setting from 60 or 18 to 20",
+            "from": [
+                "\"fg_aec_tar_bright\": 60",
+                "\"fg_aec_tar_bright\": 18"
+            ],
+            "to": "\"fg_aec_tar_bright\": 20"
+        },
+        {
+            "description": "Update reference_table_model_logit_with_seatbelt_status array values - flexible whitespace",
+            "from": [
+                "\"reference_table_model_logit_with_seatbelt_status\": [\n                4,\n                4,\n                4,\n                4,\n                4,\n                4,\n                3,\n                0,\n                0,\n                0,\n                0,\n                0\n              ]",
+                "\"reference_table_model_logit_with_seatbelt_status\": [ 4, 4, 4, 4, 4, 4, 3, 0, 0, 0, 0, 0 ]"
+            ],
+            "to": "\"reference_table_model_logit_with_seatbelt_status\": [\n                4,\n                4,\n                4,\n                4,\n                3,\n                1,\n                3,\n                0,\n                0,\n                0,\n                0,\n                0\n              ]"
+        }
+    ],
+    "ascii_path_replacements": {
+        "description": "These paths will be automatically converted to ASCII arrays and replaced",
+        "note": "The script will find all '*_path' fields with ASCII arrays and replace the old paths with new ones",
+        "automatic_replacements": [
+            {
+                "description": "Replace old '/home/iss/' paths with new '/home/iss/workspace/' paths (seatbelt_model.onnx)",
+                "old_path": "/home/iss/issp_oms_models/seatbelt_model.onnx",
+                "new_path": "/home/iss/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+            },
+            {
+                "description": "Replace old '/home/iss/' paths with new '/home/iss/workspace/' paths (seatbelt_misuse_model.onnx)",
+                "old_path": "/home/iss/issp_oms_models/seatbelt_misuse_model.onnx",
+                "new_path": "/home/iss/workspace/issp_oms_models/seatbelt_misuse_model.onnx"
+            }
+        ]
+    }
+}
